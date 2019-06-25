@@ -1,6 +1,6 @@
 from flask import Flask, abort, request
 import MsgParse
-import searchPath
+import SearchPath
 import numpy as np
 
 app = Flask(__name__)
@@ -29,7 +29,7 @@ def parse_start():
     if(CompleteChec(scheck)):
         print("1cost table is ")
         print(cost)
-        path = searchPath.run(position,cost)
+        path = SearchPath.run(position,cost)
         res = "200 ok " + path
         return res
     return '201 Created' + str(data)
@@ -46,7 +46,7 @@ def parse_goal():
     if (CompleteChec(scheck)):
         print("2cost table is ")
         print(cost)
-        path = searchPath.run(position, cost)
+        path = SearchPath.run(position, cost)
         res = "200 ok " + path
         return res
     return '201 Created' + str(data)
@@ -63,7 +63,7 @@ def parse_map():
     if (CompleteChec(scheck)):
         print("3cost table is ")
         print(cost)
-        path = searchPath.run(position, cost)
+        path = SearchPath.run(position, cost)
         res = "200 ok " + path
         return res
     return '201 Created' + str(data)
@@ -82,7 +82,7 @@ def parse_cost():
         print(cost)
         print("position info is")
         print(position)
-        path = searchPath.run(position, cost)
+        path = SearchPath.run(position, cost)
         res = "200 ok " + path
         return res
     return '201 Created' + str(data)
