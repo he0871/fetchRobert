@@ -8,6 +8,8 @@ scheck = np.array([0,0,0,0])#[start,goal,map,cost]
 position = [[],[],[]]#[[size],[start],[goal]]
 cost = []
 
+app = Flask(__name__)
+
 def CompleteChec(scheck):
     #check if we get all the information we need
     x = 1
@@ -86,3 +88,6 @@ def parse_cost():
         res = "200 ok " + path
         return res
     return '201 Created' + str(data)
+    
+if __name__ == '__main__':
+    app.run(host='0.0.0.0', port=5000, debug=True)
