@@ -8,7 +8,7 @@ import (
 )
 
 func main() {
-    url := "http://localhost:3000/api/paths/goal"
+    url := "http://localhost:5000/api/paths/goal"
     fmt.Println("URL:>", url)
 
     var jsonStr = []byte(`{'i': 4, 'j': 4}`)
