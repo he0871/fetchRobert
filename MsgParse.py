@@ -42,9 +42,8 @@ def ParseCost (src):
     return table
 
 
-def ProcCost(src):
+def ProcCost(cost, src):
     src = src.decode("utf-8")
-    cost = []
     bp = 0 #break point
     while(len(src) > 20):
         bp = src.index('\n')
@@ -53,5 +52,4 @@ def ProcCost(src):
         subString = src[:bp]
         src = src[bp+1:]
         cost.append(ParseCost(subString))
-    print(cost)
-    return cost
+

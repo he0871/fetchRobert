@@ -1,5 +1,6 @@
 from flask import Flask, abort, request
 import MsgParse
+import searchPath
 import numpy as np
 
 app = Flask(__name__)
@@ -25,8 +26,12 @@ def parse_start():
     MsgParse.ProcPosition(position, 1, data)
     scheck[0] += 1
     print(scheck)
-    #if(CompleteChec(scheck)):
-    #   search
+    if(CompleteChec(scheck)):
+        print("1cost table is ")
+        print(cost)
+        path = searchPath.run(position,cost)
+        res = "200 ok " + path
+        return res
     return '201 Created' + str(data)
 
 @app.route('/api/paths/goal', methods=['POST'])
@@ -38,6 +43,12 @@ def parse_goal():
     scheck[1] += 1
     print(scheck)
     CompleteChec(scheck)
+    if (CompleteChec(scheck)):
+        print("2cost table is ")
+        print(cost)
+        path = searchPath.run(position, cost)
+        res = "200 ok " + path
+        return res
     return '201 Created' + str(data)
 
 @app.route('/api/maps', methods=['POST'])
@@ -49,6 +60,12 @@ def parse_map():
     scheck[2] += 1
     print(scheck)
     CompleteChec(scheck)
+    if (CompleteChec(scheck)):
+        print("3cost table is ")
+        print(cost)
+        path = searchPath.run(position, cost)
+        res = "200 ok " + path
+        return res
     return '201 Created' + str(data)
 
 @app.route('/api/costs', methods=['POST'])
@@ -57,9 +74,15 @@ def parse_cost():
     print("cost table received :")
     print(data)
     scheck[3] += 1
-    cost = MsgParse.ProcCost(data)
-    print("cost table is ")
-    print(cost)
+    MsgParse.ProcCost(cost, data)
+
     print(scheck)
-    CompleteChec(scheck)
+    if (CompleteChec(scheck)):
+        print("4cost table is ")
+        print(cost)
+        print("position info is")
+        print(position)
+        path = searchPath.run(position, cost)
+        res = "200 ok " + path
+        return res
     return '201 Created' + str(data)
