@@ -107,7 +107,7 @@ def run(position, Tcost):
     sj = position[1][1]
     gi = position[2][0]
     gj = position[2][1]
-    print(Tcost[0])
+    #print(Tcost[0])
     ob = Tcost[0][2]
     maze = [[1 for x in range(C)] for x in range(R)]
     maze[si][sj] = 0
