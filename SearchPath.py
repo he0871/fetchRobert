@@ -96,6 +96,29 @@ def search(cost, Si, Sj, Gi, Gj,obstacle):
     path[Gi][Gj].append([Gi,Gj])
     print(tc)
     print(path[Gi][Gj])
-    return path[Gi][Gj]                
+    return path[Gi][Gj]
+
+
+def run(position, Tcost):
+    print("start searching path")
+    R = position[0][0]
+    C = position[0][1]
+    si = position[1][0]
+    sj = position[1][1]
+    gi = position[2][0]
+    gj = position[2][1]
+    print(Tcost[0])
+    ob = Tcost[0][2]
+    maze = [[1 for x in range(C)] for x in range(R)]
+    maze[si][sj] = 0
+    for item in Tcost:
+        maze[item[0]][item[1]] = ob
+    path = search(maze, si, sj, gi, gj, ob)
+    path = path[::-1]
+    resp = str(path)
+    step = len(path)
+    resp = "200 ok {'steps': " + str(step) + ", 'path': [" + resp + "]}"
+    print(resp)
+    return resp
 #inspired by:
 #https://www.geeksforgeeks.org/min-cost-path-dp-6/
