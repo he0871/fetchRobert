@@ -1,7 +1,7 @@
 # fetchRobert
 online test
 
-client side has 4 scripts which are coded by golang.
+client side has 5 scripts which are coded by golang.
 
 client.go : send the size of the map (how many rows and columns) to server
 
@@ -10,6 +10,8 @@ start.go : send the start position to the server
 goal.go : send the destination position to server
 
 cost.go : send the cost table to servet
+
+get.go : querying the shortest path from the server
 
 client can send information in any order.
 
