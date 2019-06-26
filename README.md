@@ -14,6 +14,7 @@ cost.go : send the cost table to servet
 client can send information in any order.
 
 using 'go run' command exeute golang scripts in command prompt like this:
+
 go run client.go
 
 
@@ -38,11 +39,9 @@ This program treat all the obstacles are same and impenetrable.
 
 Coming soon:
 
-1.Customer port number: users can set their own port #
+1.Handle error gracefully: firstly, if there is no path from start point to goal?
 
-2.Handle error gracefully: firstly, if there is no path from start point to goal?
-
-3.More test case
+2.More test case
 
 background:
 
