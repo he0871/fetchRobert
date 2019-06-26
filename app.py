@@ -38,7 +38,7 @@ def parse_goal():
     scheck[1] += 1
     return '201 Created' + str(data)
 
-@app.route('/api/maps/', methods=['POST'])
+@app.route('/api/maps', methods=['POST'])
 def parse_map():
     data = request.data  # data is empty
     print("map size received :")
